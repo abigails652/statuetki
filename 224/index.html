@@ -1,0 +1,568 @@
+<html lang="lv">
+	<head>
+		<meta name="viewport" content="width=435">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Fizzy Slim</title>
+		<link rel="shortcut icon" href="img/favicon1.png" type="image/x-icon">
+		<link href="css/normalize.css" rel="stylesheet" type="text/css">
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<link href="css/plyr.css" rel="stylesheet" type="text/css">
+	</head>
+	<body style="overflow: auto; margin-right: 0px;">
+		<div hidden="" id="sprite-plyr">
+			<svg xmlns="http://www.w3.org/2000/svg">
+				<symbol id="plyr-captions-off" viewBox="0 0 18 18">
+					<path d="M1 1c-.6 0-1 .4-1 1v11c0 .6.4 1 1 1h4.6l2.7 2.7c.2.2.4.3.7.3.3 0 .5-.1.7-.3l2.7-2.7H17c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1H1zm4.52 10.15c1.99 0 3.01-1.32 3.28-2.41l-1.29-.39c-.19.66-.78 1.45-1.99 1.45-1.14 0-2.2-.83-2.2-2.34 0-1.61 1.12-2.37 2.18-2.37 1.23 0 1.78.75 1.95 1.43l1.3-.41C8.47 4.96 7.46 3.76 5.5 3.76c-1.9 0-3.61 1.44-3.61 3.7 0 2.26 1.65 3.69 3.63 3.69zm7.57 0c1.99 0 3.01-1.32 3.28-2.41l-1.29-.39c-.19.66-.78 1.45-1.99 1.45-1.14 0-2.2-.83-2.2-2.34 0-1.61 1.12-2.37 2.18-2.37 1.23 0 1.78.75 1.95 1.43l1.3-.41c-.28-1.15-1.29-2.35-3.25-2.35-1.9 0-3.61 1.44-3.61 3.7 0 2.26 1.65 3.69 3.63 3.69z" fill-rule="evenodd" fill-opacity=".5"></path>
+				</symbol>
+				<symbol id="plyr-captions-on" viewBox="0 0 18 18">
+					<path d="M1 1c-.6 0-1 .4-1 1v11c0 .6.4 1 1 1h4.6l2.7 2.7c.2.2.4.3.7.3.3 0 .5-.1.7-.3l2.7-2.7H17c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1H1zm4.52 10.15c1.99 0 3.01-1.32 3.28-2.41l-1.29-.39c-.19.66-.78 1.45-1.99 1.45-1.14 0-2.2-.83-2.2-2.34 0-1.61 1.12-2.37 2.18-2.37 1.23 0 1.78.75 1.95 1.43l1.3-.41C8.47 4.96 7.46 3.76 5.5 3.76c-1.9 0-3.61 1.44-3.61 3.7 0 2.26 1.65 3.69 3.63 3.69zm7.57 0c1.99 0 3.01-1.32 3.28-2.41l-1.29-.39c-.19.66-.78 1.45-1.99 1.45-1.14 0-2.2-.83-2.2-2.34 0-1.61 1.12-2.37 2.18-2.37 1.23 0 1.78.75 1.95 1.43l1.3-.41c-.28-1.15-1.29-2.35-3.25-2.35-1.9 0-3.61 1.44-3.61 3.7 0 2.26 1.65 3.69 3.63 3.69z" fill-rule="evenodd"></path>
+				</symbol>
+				<symbol id="plyr-enter-fullscreen" viewBox="0 0 18 18">
+					<path d="M10 3h3.6l-4 4L11 8.4l4-4V8h2V1h-7zM7 9.6l-4 4V10H1v7h7v-2H4.4l4-4z"></path>
+				</symbol>
+				<symbol id="plyr-exit-fullscreen" viewBox="0 0 18 18">
+					<path d="M1 12h3.6l-4 4L2 17.4l4-4V17h2v-7H1zM16 .6l-4 4V1h-2v7h7V6h-3.6l4-4z"></path>
+				</symbol>
+				<symbol id="plyr-fast-forward" viewBox="0 0 18 18">
+					<path d="M7.875 7.171L0 1v16l7.875-6.171V17L18 9 7.875 1z"></path>
+				</symbol>
+				<symbol id="plyr-muted" viewBox="0 0 18 18">
+					<path d="M12.4 12.5l2.1-2.1 2.1 2.1 1.4-1.4L15.9 9 18 6.9l-1.4-1.4-2.1 2.1-2.1-2.1L11 6.9 13.1 9 11 11.1zM3.786 6.008H.714C.286 6.008 0 6.31 0 6.76v4.512c0 .452.286.752.714.752h3.072l4.071 3.858c.5.3 1.143 0 1.143-.602V2.752c0-.601-.643-.977-1.143-.601L3.786 6.008z"></path>
+				</symbol>
+				<symbol id="plyr-pause" viewBox="0 0 18 18">
+					<path d="M6 1H3c-.6 0-1 .4-1 1v14c0 .6.4 1 1 1h3c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1zM12 1c-.6 0-1 .4-1 1v14c0 .6.4 1 1 1h3c.6 0 1-.4 1-1V2c0-.6-.4-1-1-1h-3z"></path>
+				</symbol>
+				<symbol id="plyr-play" viewBox="0 0 18 18">
+					<path d="M15.562 8.1L3.87.225C3.052-.337 2 .225 2 1.125v15.75c0 .9 1.052 1.462 1.87.9L15.563 9.9c.584-.45.584-1.35 0-1.8z"></path>
+				</symbol>
+				<symbol id="plyr-restart" viewBox="0 0 18 18">
+					<path d="M9.7 1.2l.7 6.4 2.1-2.1c1.9 1.9 1.9 5.1 0 7-.9 1-2.2 1.5-3.5 1.5-1.3 0-2.6-.5-3.5-1.5-1.9-1.9-1.9-5.1 0-7 .6-.6 1.4-1.1 2.3-1.3l-.6-1.9C6 2.6 4.9 3.2 4 4.1 1.3 6.8 1.3 11.2 4 14c1.3 1.3 3.1 2 4.9 2 1.9 0 3.6-.7 4.9-2 2.7-2.7 2.7-7.1 0-9.9L16 1.9l-6.3-.7z"></path>
+				</symbol>
+				<symbol id="plyr-rewind" viewBox="0 0 18 18">
+					<path d="M10.125 1L0 9l10.125 8v-6.171L18 17V1l-7.875 6.171z"></path>
+				</symbol>
+				<symbol id="plyr-volume" viewBox="0 0 18 18">
+					<path d="M15.6 3.3c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4C15.4 5.9 16 7.4 16 9c0 1.6-.6 3.1-1.8 4.3-.4.4-.4 1 0 1.4.2.2.5.3.7.3.3 0 .5-.1.7-.3C17.1 13.2 18 11.2 18 9s-.9-4.2-2.4-5.7z"></path>
+					<path d="M11.282 5.282a.909.909 0 0 0 0 1.316c.735.735.995 1.458.995 2.402 0 .936-.425 1.917-.995 2.487a.909.909 0 0 0 0 1.316c.145.145.636.262 1.018.156a.725.725 0 0 0 .298-.156C13.773 11.733 14.13 10.16 14.13 9c0-.17-.002-.34-.011-.51-.053-.992-.319-2.005-1.522-3.208a.909.909 0 0 0-1.316 0zM3.786 6.008H.714C.286 6.008 0 6.31 0 6.76v4.512c0 .452.286.752.714.752h3.072l4.071 3.858c.5.3 1.143 0 1.143-.602V2.752c0-.601-.643-.977-1.143-.601L3.786 6.008z"></path>
+				</symbol>
+			</svg>
+		</div>
+		<div class="container">
+			<div class="block1">
+				<div class="top-block">
+					<div class="wrapper">
+						<div class="item item1 lt1">BEZ CAURĒJU VEICINOŠA EFEKTA</div>
+						<div class="item item2 lt2"><span class="green">Dižpārdoklis!</span> maksimālais pozitīvu novērtējumu skaits!</div>
+					</div>
+				</div>
+				<div class="wrapper">
+					<div class="title lt3">pirmais <span class="dark"> tauku dedzinošs</span> līdzeklis,</div>
+					<div class="subtitle lt4">Pateicoties dabīgajām<span class="red">VIELMAIŅAS PAĀTRINĀŠANA!</span></div>
+					<div class="left-block">
+						<div class="item-block">
+							<div class="item item1">
+								<div class="iimage"><img src="img/icon2.png" alt=""></div>
+								<div class="itext lt5">Samazina apetīti <span class="white">līdz 4 stundām</span></div>
+							</div>
+							<div class="item item2">
+								<div class="iimage"><img src="img/icon3.png" alt=""></div>
+								<div class="itext lt6">Paātrina <span class="white">vielmaņu</span></div>
+							</div>
+							<div class="item item3">
+								<div class="iimage"><img src="img/icon4.png" alt=""></div>
+								<div class="itext lt7">Veicina tauku<span class="white"><br>sadedzināšanu </span></div>
+							</div>
+						</div>
+						<div class="product-block">
+							<div class="product js__countryblock"><img src="img/product1.png" alt=""></div>
+							<div class="label"><img src="img/label.png" alt=""></div>
+							<div class="info"><span class="lt8">Akciju preču skaits:</span>
+								<span class="inumber js-countdown">85</span>
+							</div>
+						</div>
+					</div>
+					<div class="right-block">
+						<div class="rtop-block">
+							<div class="rtitle"><span class="white lt9">Jauna cena:</span></div>
+							<div class="price new al-cost">39 €</div>
+							<div class="price old"><span class="lt97">Veca cena:</span>
+								<s class="al-cost-promo">78 €</s>
+							</div>
+						</div>
+						<div class="timer">
+							<div class="timer-line"></div>
+							<div class="timer-text lt11">līdz akcijas beigām:</div>
+							<div class="timer-line tl-right"></div>
+							<div class="timer-block">
+								<span class="hours item">00</span>
+								<span class="mins item">27</span>
+								<span class="secs item">41</span>
+							</div>
+							<div class="bottom-line">
+								<div class="h-text lt12">stundas</div>
+								<div class="m-text lt13">minūtes</div>
+								<div class="s-text lt14">sekundes</div>
+							</div>
+						</div>
+						<div class="form-block">
+							<iframe style="width: 100%;height: 290px;border: 0;margin-top: -20px;" src="http://fes-com.ru/11/LV/frame" ></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="block2">
+				<div class="wrapper">
+					<div class="title lt16">APTAUKOŠANAS NOGALINA <span class="blue">TEVĪ SKAISTU</span> SIEVIETI</div>
+					<div class="item-block">
+						<div class="item item1">
+							<div class="iimage"><img src="img/pic1.png" alt=""></div>
+							<div class="itext lt17"><span class="red">Par Jums runa </span> aiz muguras</div>
+						</div>
+						<div class="item item2">
+							<div class="iimage"><img src="img/pic2.png" alt=""></div>
+							<div class="itext lt18">Apģērbs izskatās<span class="red">briesmīgi</span></div>
+						</div>
+						<div class="item item3">
+							<div class="iimage"><img src="img/pic3.png" alt=""></div>
+							<div class="itext lt19"><span class="red">Vainas sajūta</span> pēc ēdienreizes</div>
+						</div>
+						<div class="item item4">
+							<div class="iimage"><img src="img/pic4.png" alt=""></div>
+							<div class="itext lt20">Vīrieši<span class="red">vienaldzīgi</span></div>
+						</div>
+						<div class="item item5">
+							<div class="iimage"><img src="img/pic5.png" alt=""></div>
+							<div class="itext lt21"><span class="red">Kauns</span> noģērbties citu cilvēku klātienē</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="block3">
+				<div class="wrapper">
+					<div class="title lt22"><span class="pink">KĀPĒC</span> одни <span class="pink">sievietes</span> PIEŅEMAS SVARĀ</div>
+					<div class="subtitle lt23">Bet <span class="red">citi</span> var baudīt maltītes</div>
+					<div class="item-block">
+						<div class="item item1">
+							<div class="itext lt24">Ko grib</div>
+						</div>
+						<div class="item item2">
+							<div class="itext lt25">Kad grib</div>
+						</div>
+						<div class="item item3">
+							<div class="itext lt26">Cik grib</div>
+						</div>
+					</div>
+					<div class="title btitle lt27">UN NEPIEŅEMAS SVARĀ!?</div>
+					<div class="textline lt28">Slaiduma efekts<br><span class="blue">в <span class="underwhite">paātrināta vielmaiņā</span></span></div>
+				</div>
+			</div>
+			<div class="block4">
+				<div class="wrapper">
+					<div class="left-block"><img src="img/wiki.png" alt=""></div>
+					<div class="right-block lt29"><span class="red"><span class="bold">Vielmaiņa</span> (grieķu μεταβολή — ‘’pārvēršanās’’),</span> vai <span class="blue">metabolisms</span> — ir uztura enerģijas pārvēršanās process dzīvības un organisma darbības enerģijā.  Metabolisma paātrināšanas pasākumi ir<span class="blue"> bāzes un aktīva metabolisma līmeņa paaugstināšana.</span> Paaugstināt līmeni iespējams ar regulāriem sporta treniņiem un pārtikas uzturvielas sagremošanas procentu paaugstināšanu<span class="blue">lietojot papildus fermentus, kas ir tauku sadedzinošu vielu sastāvā</span> ar to augstu koncentrāciju.</div>
+				</div>
+			</div>
+			<div class="block6">
+				<div class="wrapper">
+					<div class="left-image">
+						<div class="image"><img src="img/pic9.png" alt=""></div>
+						<div class="text"><span class="lt42">Viktorija Vanaga</span>
+							<br><span class="red">122 κιλά</span>
+						</div>
+					</div>
+					<div class="central-block">
+						<div class="title lt43">1 lietošanas kurss <span class="red">Fizzy Slim</span> =<br><span class="blue">6 intensīvo treniņu mēnešiem!</span></div>
+						<div class="subtitle lt44">Jūs notievējāt bez stresa un bada sajūtas.</div>
+						<div class="textline lt45"><span class="blue">Preparāta</span> ekstraordinārs sastāvs padarīs visu darbu jūsu vietā <span class="blue">24 stundu laikā </span></div>
+					</div>
+					<div class="left-image right-image">
+						<div class="image"><img src="img/pic10.png" alt=""></div>
+						<div class="text lt46">Rezultāts pēc 3,5 mēneša <br><span class="green">60 kg</span></div>
+					</div>
+				</div>
+			</div>
+			<div class="block7">
+				<div class="wrapper">
+					<div class="title lt47">Tauku šūnas ir bīstamas!</div>
+					<div class="text-block lt48">Paplašinoties, tas pārklāj <br>iekšējus orgānus, asinsvadus un sirdi ar biezo kārtu</div>
+					<div class="left-block">
+						<div class="line"></div>
+						<div class="ltext-block">
+							<div class="top-text lt49">Fizzy Slim aktīvie komponenti stimulē mitohondriju izstrādāt enerģiju.</div>
+							<div class="bottom-text lt50">Šūnas tiek palaista ‘’enerģētiskā fabrika’’. Un <span class="red">sadedzina kalorijas,</span> kamēr jūs strādājāt, gulējāt un pat ēdāt!</div>
+						</div>
+					</div>
+					<div class="product-block">
+						<div class="product js__countryblock"><img src="img/product1.png" alt=""></div>
+						<div class="label"><img src="img/label.png" alt=""></div>
+					</div>
+					<div class="right-block">
+					</div>
+				</div>
+			</div>
+			<div class="block8 js__countryblock">
+				<div class="wrapper">
+					<div class="left-block">
+						<div class="ltitle lt52">UZMANĪBU! <span class="red">Fizzy Slim</span> ļoti <span class="green">SPECĪGS</span> līdzeklis!</div>
+						<div class="line"></div>
+						<div class="ltext lt53">Fizzy Slim <span class="green">ir augsti efektīvs notievēšanas komplekss, kas ņem vērā aktivitātes bioritmus,</span>  noņem visus iespējamus lieka svara cēloņus un sašķel taukus. <br> <br><span class="red">Super spēcīgs komplekss no dabīgajiem komponentiem.</span>  Paredzēts <span class="red">ātrai tauku sadedzināšanai</span> organismā. <br> <br><span class="green">Lieotjiet 2 reizes dienā totālai tauku sadedzināšanai – no rītiem un vakaros. </span> Ņemiet vērā: Fizzy Slim nav maigs līdzeklis, tā ir ultra koncentrāts notieviēšanai!<span class="green">Tas ir tauku sadedzinātās,</span> slaida ķermeņa konstruktors.</div>
+					</div>
+					<div class="right-block"><img src="img/product2.png" alt=""></div>
+				</div>
+			</div>
+			<div class="block9">
+				<div class="wrapper">
+					<div class="title lt54">Pozitīvu vērtējumu <span class="blue">maksimālais skaits</span></div>
+					<div class="left-block">
+						<div class="ltop">
+							<div class="stars">
+								<img src="img/star.png" alt="">
+								<img src="img/star.png" alt="">
+								<img src="img/star.png" alt="">
+								<img src="img/star.png" alt="">
+								<img src="img/star2.png" alt="">
+							</div>
+							<div class="ltext">307 Reviews</div>
+						</div>
+						<div class="line line1">
+							<div class="left-text">5 Star</div>
+							<div class="pbar"></div>
+							<div class="right-text">82% </div>
+						</div>
+						<div class="line line2">
+							<div class="left-text">4 Star</div>
+							<div class="pbar"></div>
+							<div class="right-text">7% </div>
+						</div>
+						<div class="line line3">
+							<div class="left-text">3 Star</div>
+							<div class="pbar"></div>
+							<div class="right-text">2% </div>
+						</div>
+						<div class="line line4">
+							<div class="left-text">2 Star</div>
+							<div class="pbar"></div>
+							<div class="right-text">6% </div>
+						</div>
+						<div class="line line5">
+							<div class="left-text">1 Star</div>
+							<div class="pbar"></div>
+							<div class="right-text">3% </div>
+						</div>
+					</div>
+					<div class="right-block">
+						<div class="reviews rew1">
+							<div class="rtop">
+								<div class="left-image"><img src="img/pic11.png" alt=""></div>
+								<div class="right-details">
+									<div class="line line1">
+										<div class="stars">
+											<img src="img/star.png" alt="">
+											<img src="img/star.png" alt="">
+											<img src="img/star.png" alt="">
+											<img src="img/star.png" alt="">
+											<img src="img/star3.png" alt="">
+										</div>
+										<div class="rpage">1/4</div>
+									</div>
+									<div class="line line2">
+										<div class="left-text"><span class="author lt55">Anna Romanovska</span>
+											<br><span class="lt56">Nav nekāds brīnums...</span>
+										</div>
+										<div class="navigation">
+											<div class="arrow prev"></div>
+											<div class="arrow next"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="rtext lt57">Pēc dzemdībām ļoti pieņemos svarā. Gribējās ātri iegūt labu formu. Mēģināju Dukānu diētu, bet neizturēju. Sports domāts tiem, kuri gatavi maz laika veltīt bērniem. Es tā nevaru. Bērns ir svēta lieta. <span class="red">Izlasīju par dietoniku. Izmēģināju. Lūk, mans rezultāts pēc 4 nedēļām.</span></div>
+						</div>
+						<div class="reviews rew2" style="display: none;">
+							<div class="rtop">
+								<div class="left-image"><img src="img/pic24.png" alt=""></div>
+								<div class="right-details">
+									<div class="line line1">
+										<div class="stars">
+											<img src="img/star.png" alt="">
+											<img src="img/star.png" alt="">
+											<img src="img/star.png" alt="">
+											<img src="img/star.png" alt="">
+											<img src="img/star3.png" alt="">
+										</div>
+										<div class="rpage">2/4</div>
+									</div>
+									<div class="line line2">
+										<div class="left-text"><span class="author lt58">Olga Ušinska</span>
+											<br><span class="lt59">Fantastīka!</span>
+										</div>
+										<div class="navigation">
+											<div class="arrow prev"></div>
+											<div class="arrow next"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="rtext lt60">Sastāvs protams iz ZELTA vērts, dārgie komponenti. Tāpēc arī rezultāts pamanāms uzreiz.</div>
+						</div>
+						<div class="reviews rew3" style="display: none;">
+							<div class="rtop">
+								<div class="left-image"><img src="img/pic25.png" alt=""></div>
+								<div class="right-details">
+									<div class="line line1">
+										<div class="stars">
+											<img src="img/star.png" alt="">
+											<img src="img/star.png" alt="">
+											<img src="img/star.png" alt="">
+											<img src="img/star.png" alt="">
+											<img src="img/star3.png" alt="">
+										</div>
+										<div class="rpage">3/4</div>
+									</div>
+									<div class="line line2">
+										<div class="left-text"><span class="author lt61">Vija Alksne</span>
+											<br><span class="lt62">Vīrs nevar noticēt savām acīm</span>
+										</div>
+										<div class="navigation">
+											<div class="arrow prev"></div>
+											<div class="arrow next"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="rtext lt63">Nebiju tik slaida pat 19 gadu vecumā. <br>Nometu 21 kg 2 mēnešu laikā</div>
+						</div>
+						<div class="reviews rew4" style="display: none;">
+							<div class="rtop">
+								<div class="left-image"><img src="img/pic26.png" alt=""></div>
+								<div class="right-details">
+									<div class="line line1">
+										<div class="stars">
+											<img src="img/star.png" alt="">
+											<img src="img/star.png" alt="">
+											<img src="img/star.png" alt="">
+											<img src="img/star.png" alt="">
+											<img src="img/star3.png" alt="">
+										</div>
+										<div class="rpage">4/4</div>
+									</div>
+									<div class="line line2">
+										<div class="left-text"><span class="author lt64">Anete Fogele</span>
+											<br><span class="lt65">Kaut kāda maģija!!!</span>
+										</div>
+										<div class="navigation">
+											<div class="arrow prev"></div>
+											<div class="arrow next"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="rtext lt66">Tauki no vēdera aizgāja pēc 2 nedēļām, es pat neko nedarīju!<br>Bet palieku slaidāka</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="block11">
+				<div class="wrapper">
+					<div class="left-block">
+						<div class="ltext lt67">Pateikšu bargu patiesību. Zvaigznes NEKAD nenotievē tikai sporta un pareiza uztura rezultātā.</div>
+						<div class="limage lt68">Alise Lapsa</div>
+						<div class="lname lt69">Ārste-dietoloģe no prestižās Rīgas klīnikas, strādā ar šovu zvaigznēm.</div>
+					</div>
+					<div class="right-block">
+						<div class="rtitle lt70">ZVAIGŽŅU <span class="dark">dietologs pastāstīs </span> PATIESĪBU</div>
+						<div class="rtext lt71"><span class="red"><span class="bold">Katra notievējusi zvaigzne,</span></span>  vai veikusi liposakciju, vai lietojusi spēcīgas piedevas. <br> <br>Zinot viņu dzīvesveidu un pārlieku pašmīlestību, viņi nevar atļauties nopietnus ierobežojumus. Neregulāras maltītes un miega režīms, mūžīgi koncerti un šovi. Kāds vēl režīms un treniņi.<br> <br>Jā, <span class="green">Fizzy Slim</span>lielisks veids sasniegt slaidumu un paturēt svaru uz vēlamas atzīmes. Pilnīgi drošs preparāts, kurā dietoloģi saskata ļoti daudz plusu. Personīgi es  <span class="red"> ieteicu startam jaunā, skaistā dzīvē izmantot tieši</span> <span class="green">Fizzy Slim,</span> tāpēc ka <span class="red">efekts ir ātrs, bet ar to pietiek uz ļoti ilgu laiku.</span></div>
+						<div class="rsign"><img src="img/sign.png" alt=""></div>
+					</div>
+				</div>
+			</div>
+			<div class="block12">
+				<div class="wrapper">
+					<div class="title lt72"><span class="red">saoņi notievēt,</span> bet mužīgi pietrūkst motivācijas un <span class="pink">tu noraujas?</span></div>
+					<div class="item-block">
+						<div class="item item1">
+							<div class="ltext">89%</div>
+							<div class="lline"></div>
+							<div class="rtext lt73">notievējušas sievietes<span class="red">atgriež vīra mīlestība un uzmanība.</span> Pēc statistikas, notievējušas sievietes 10 reizes vairāk saglabā ģimenes, kas bija uz šķiršanās sliekšņa.</div>
+						</div>
+						<div class="item item2">
+							<div class="ltext">71%</div>
+							<div class="lline"></div>
+							<div class="rtext lt74">notievējušas sievietes <span class="red">saņem paaugstinājumu. </span> Pēc statistikas, liekus kilogramus nometušas sievietes kļuva pašpārliecinātākas, saņem piedāvājumus par algas un amata paaugstinājumu.</div>
+						</div>
+						<div class="item item3">
+							<div class="ltext">93%</div>
+							<div class="lline"></div>
+							<div class="rtext lt75">sievietes <span class="red">satika labāku vīrieti </span>3 mēnešu laikā pēc notievēšanas. Pēc statistikas, slaidas sievietes apprecas pirmajā pusgadā pēc iepazīšanās 30 reizes vairāk, nekā korpulentas sievietes.</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="block13">
+				<div class="wrapper">
+					<div class="title lt76">ko tādu apēstu<span class="red">lai notievētu?</span> apēd <span class="red">Fizzy Slim!</span> un <span class="blue">tikai pēc mēnesi!</span></div>
+					<div class="item-block">
+						<div class="item item1">
+							<div class="iimage"><img src="img/pic16.png" alt=""></div>
+							<div class="itext lt77">Jums izteiks <span class="red">komplimentus</span></div>
+						</div>
+						<div class="item item2">
+							<div class="iimage"><img src="img/pic17.png" alt=""></div>
+							<div class="itext lt78">Apģērbs  <span class="red">izskatās lieliski</span></div>
+						</div>
+						<div class="item item3">
+							<div class="iimage"><img src="img/pic18.png" alt=""></div>
+							<div class="itext lt79">Jums <span class="red">negribās</span> pastāvīgi un daudz <span class="red">ēst</span></div>
+						</div>
+						<div class="item item4">
+							<div class="iimage"><img src="img/pic19.png" alt=""></div>
+							<div class="itext lt80">Vītriēsi <span class="red">kļuvuši uzmanīgi </span></div>
+						</div>
+						<div class="item item5">
+							<div class="iimage"><img src="img/pic20.png" alt=""></div>
+							<div class="itext lt81">Jūms <span class="red">nav jākautrējas </span> no savas <span class="red">ķermeņa</span> kā bijis iepriekš</div>
+						</div>
+					</div>
+					<div class="button-line">
+						<button onclick="$('#apply').arcticmodal(); return false;" class="lt82">Pasūtīt</button>
+					</div>
+				</div>
+			</div>
+			<div class="block14">
+				<div class="wrapper">
+					<div class="left-block">
+						<div class="text-block">
+							<div class="ttitle lt83">sargieties no viltojumiem!</div>
+							<div class="ttext lt84">UZMANĪBA! Sakarā ar preparāta popularitāti interneta vidē arvien biežākas kļuvušie viltojumu gadījumu ar ļoti zemām cenām. <br> <br><span class="bold">Tikai šeit, oficiālā vietnē</span> Fizzy Slim jūs varat iegādāties oriģinālu produktu.</div>
+						</div>
+						<div class="textline lt85">ražotājs garantē 100% kvalitāti!</div>
+					</div>
+					<div class="right-image">
+						<div class="image1"><img src="img/item7.png" alt=""></div>
+						<div class="image2 js__countryblock"><img src="img/product1.png" alt=""></div>
+					</div>
+					<div class="title lt86">Kā mēs strādājam</div>
+					<div class="item-block">
+						<div class="item item1">
+							<div class="iimage"><img src="img/pic21.png" alt=""></div>
+							<div class="itext lt87">Noformējiet pasūtījumu tūlīt un <span class="red">saņemiet atlaidi </span></div>
+						</div>
+						<div class="item item2">
+							<div class="iimage"><img src="img/pic22.png" alt=""></div>
+							<div class="itext lt88">Sagaidiet konsultanta zvanu detaļu saskaņošanai</div>
+						</div>
+						<div class="item item3">
+							<div class="iimage"><img src="img/pic23.png" alt=""></div>
+							<div class="itext lt89"><span class="red">Nemaksājiet neko</span> kamēr nesaņemsiet preci pastā </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="block15">
+				<div class="wrapper">
+					<div class="title lt90">pirmais <span class="white"> līdzeklis</span> kas sašķel taukus,</div>
+					<div class="subtitle lt91">Pateicoties dabiskai <span class="yellow">VIELMAIŅAS PAĀTRINĀŠANAI!</span></div>
+					<div class="left-block">
+						<div class="item-block">
+							<div class="item item1">
+								<div class="iimage"><img src="img/icon2.png" alt=""></div>
+								<div class="itext lt92">Savalda apetīti <span class="white">līdz 4 stundām</span></div>
+							</div>
+							<div class="item item2">
+								<div class="iimage"><img src="img/icon3.png" alt=""></div>
+								<div class="itext lt93">Paātrina <span class="white">vielmaiņu</span></div>
+							</div>
+							<div class="item item3">
+								<div class="iimage"><img src="img/icon4.png" alt=""></div>
+								<div class="itext lt94">Veicina tauku <span class="white">sadedzināšanu</span></div>
+							</div>
+						</div>
+						<div class="product-block">
+							<div class="product js__countryblock"><img src="img/product1.png" alt=""></div>
+							<div class="label"><img src="img/label.png" alt=""></div>
+							<div class="info"><span class="lt95">Paliek akciju preces:</span>
+								<span class="inumber js-countdown">85</span>
+							</div>
+						</div>
+					</div>
+					<div class="right-block">
+						<div class="rtop-block">
+							<div class="rtitle"><span class="white lt96">Jauna cena:</span></div>
+							<div class="price new al-cost">39 €</div>
+							<div class="price old"><span class="lt97">Veca cena:</span>
+								<s class="al-cost-promo">78 €</s>
+							</div>
+						</div>
+						<div class="timer">
+							<div class="timer-line"></div>
+							<div class="timer-text lt98">līdz akcijas beigām:</div>
+							<div class="timer-line tl-right"></div>
+							<div class="timer-block">
+								<span class="hours item">00</span>
+								<span class="mins item">27</span>
+								<span class="secs item">41</span>
+							</div>
+							<div class="bottom-line">
+								<div class="h-text lt99">stundas</div>
+								<div class="m-text lt100">minūtes</div>
+								<div class="s-text lt101">sekundes</div>
+							</div>
+						</div>
+						<div class="form-block">
+							<iframe style="width: 100%;height: 290px;border: 0;margin-top: -20px;" src="http://fes-com.ru/11/LV/frame" ></iframe>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hide">
+			<div class="box-modal" id="apply">
+				<div class="close arcticmodal-close">
+					<img src="img/close.png" alt="">
+				</div>
+				<div class="left-block">
+					<div class="ltitle lt103">pirmais <span class="white"> </span> tauku šķelošais līdzeklis, <span class="white">Pateicoties dabiskai </span>VIELMAIŅAS PAĀTRINŠĀNAI!</div>
+					<div class="timer">
+						<div class="timer-line"></div>
+						<div class="timer-text lt98">līdz akcijas beigām:</div>
+						<div class="timer-line tl-right"></div>
+						<div class="timer-block">
+							<span class="hours item">00</span>
+							<span class="mins item">27</span>
+							<span class="secs item">41</span>
+						</div>
+						<div class="bottom-line">
+							<div class="h-text lt99">stundas</div>
+							<div class="m-text lt100">minūtes</div>
+							<div class="s-text lt101">sekundes</div>
+						</div>
+					</div>
+				</div>
+				<div class="central-block">
+					<div class="product js__countryblock"><img src="img/product1.png" alt=""></div>
+					<div class="label"><img src="img/label.png" alt=""></div>
+					<div class="info"><span class="lt95">Paliek akciju preces:</span>
+						<span class="inumber js-countdown">85</span>
+					</div>
+				</div>
+				<div class="right-block">
+					<div class="rtop-block">
+						<div class="rtitle"><span class="white lt96">Jauna cena:</span></div>
+						<div class="price new al-cost">39 €</div>
+						<div class="price old"><span class="lt97">Veca cena:</span>
+							<s class="al-cost-promo">78 €</s>
+						</div>
+					</div>
+					<div class="form-block">
+						<iframe style="width: 100%;height: 290px;border: 0;margin-top: -20px;" src="http://fes-com.ru/11/LV/frame" ></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700|PT+Sans:400,400i,700&amp;subset=cyrillic-ext" rel="stylesheet">
+		<script src="js/jquery.js"></script>
+		<script src="js/jquery.arcticmodal-0.3.min.js"></script>
+		<script src="js/plyr.js"></script>
+		<script src="js/script.js"></script>
+		<script src="js/countdown.js"></script>
+</html>
